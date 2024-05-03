@@ -14,7 +14,7 @@ export default function EventCard() {
       />
 
       <div className="p-3">
-        <Link href="./details.html" className="text-lg font-bold">
+        <Link href="/details/12" className="text-lg font-bold">
           Google I/O Extended
         </Link>
         <p className="text-[#9C9C9C] text-sm mt-1">
