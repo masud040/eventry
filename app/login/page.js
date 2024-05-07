@@ -1,3 +1,4 @@
+import Link from "next/link";
 import LoginForm from "../components/auth/LoginForm";
 
 export default function LoginPage() {
@@ -8,10 +9,10 @@ export default function LoginPage() {
 
         <LoginForm />
         <span className="text-xs text-center text-gray-500">
-          Don't have an account?
-          <a className="underline hover:text-indigo-600" href="./register.html">
+          Don't have an account?{" "}
+          <Link className="underline hover:text-indigo-600" href="/register">
             Register
-          </a>
+          </Link>
         </span>
       </div>
     </section>
