@@ -1,3 +1,4 @@
+import connectMongo from "@/services/mongo";
 import { Inter } from "next/font/google";
 import Navbar from "./components/Navbar";
 import "./globals.css";
@@ -9,7 +10,9 @@ export const metadata = {
   description: "this project is created for manage events.",
 };
 
-export default function RootLayout({ children }) {
+export default async function RootLayout({ children }) {
+  const mongoConn = await connectMongo();
+
   return (
     <html lang="en">
       <body className={inter.className}>

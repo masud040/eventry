@@ -1,8 +1,11 @@
 import EventDetail from "@/app/components/details/EventDetails";
 import EventVenue from "@/app/components/details/EventVenue";
 import HeroSection from "@/app/components/details/HeroSection";
+import { getEventById } from "@/db/queries";
 
-export default function EventDetailsPage() {
+export default async function EventDetailsPage({ params: { id } }) {
+  const eventData = await getEventById(id);
+  console.log(eventData);
   return (
     <>
       <HeroSection />
