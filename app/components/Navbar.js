@@ -1,3 +1,4 @@
+import Logo from "@/public/logo.svg";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -7,7 +8,7 @@ const Navbar = () => {
       <div className="container flex items-center justify-between py-4">
         <div className="nav-brand">
           <Link href="/">
-            <Image src="/logo.svg" alt="Eventry" width={135} height={135} />
+            <Image src={Logo} alt="Eventry" width={135} height={135} />
           </Link>
         </div>
 
