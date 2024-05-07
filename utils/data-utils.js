@@ -11,9 +11,6 @@ export const replaceMongoIdInArray = (array) => {
 };
 
 export const replaceMongoIdInObject = (object) => {
-  const { _id, ...rest } = object;
-  return {
-    id: _id.toString(),
-    ...rest,
-  };
+  const { _id, ...updataObj } = { ...object, id: object._id.toString() };
+  return updataObj;
 };
