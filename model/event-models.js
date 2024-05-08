@@ -29,11 +29,8 @@ const eventSchema = new Schema({
     type: Array,
   },
 });
-let EventModel;
-if (mongoose.models && mongoose.models.events) {
-  EventModel = mongoose.model("events");
-} else {
-  EventModel = mongoose.model("events", eventSchema);
-}
+
+const EventModel =
+  mongoose?.models.events ?? mongoose.model("events", eventSchema);
 
 export default EventModel;

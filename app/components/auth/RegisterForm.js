@@ -1,6 +1,8 @@
+import { registerUser } from "@/app/actions";
+
 export default function RegisterForm() {
   return (
-    <form class="login-form">
+    <form class="login-form" action={registerUser}>
       <div>
         <label for="name">Full Name</label>
         <input type="text" name="name" id="name" />
@@ -18,7 +20,7 @@ export default function RegisterForm() {
 
       <div>
         <label for="phone">Phone Number</label>
-        <input type="tel" name="pnone" id="phone" />
+        <input type="tel" name="phone" id="phone" />
       </div>
 
       <div>
