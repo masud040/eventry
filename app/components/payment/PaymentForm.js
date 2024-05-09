@@ -1,6 +1,12 @@
-export default function PaymentForm() {
+"use client";
+
+import { handleUpdateGoing } from "@/app/actions";
+import useAuth from "@/app/hooks/useAuth";
+
+export default function PaymentForm({ eventId }) {
+  const { auth } = useAuth();
   return (
-    <form>
+    <form action={() => handleUpdateGoing(eventId, auth)}>
       <div className="my-4 space-y-2">
         <label htmlFor="name" className="block">
           Name

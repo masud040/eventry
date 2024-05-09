@@ -41,10 +41,16 @@ async function updateInterest(eventId, authId) {
   }
   event.save();
 }
+async function updateGoing(eventId, authId) {
+  const event = await EventModel.findById(eventId);
+  event.going_ids.push(new mongoose.Types.ObjectId(authId));
+  event.save();
+}
 export {
   createUser,
   findUserByCredential,
   getAllEvents,
   getEventById,
+  updateGoing,
   updateInterest,
 };
