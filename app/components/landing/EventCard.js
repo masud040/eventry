@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import ActionButtons from "../ActionButtons";
+import EventSchema from "../metadata/EventSchema";
 
 export default function EventCard({ event }) {
   const { id, name, details, location, imageUrl, interested_ids, going_ids } =
@@ -8,6 +9,7 @@ export default function EventCard({ event }) {
 
   return (
     <div className="overflow-hidden rounded-md bg-[#242526]">
+      <EventSchema event={event} />
       <Image
         src={imageUrl}
         alt={name}

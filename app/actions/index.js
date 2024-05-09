@@ -10,6 +10,7 @@ import {
 } from "@/db/queries";
 import { redirect } from "next/navigation";
 import { Resend } from "resend";
+import EmailTemplate from "../components/payment/EmailTemplate";
 
 async function registerUser(formData) {
   const user = Object.fromEntries(formData);
@@ -50,13 +51,15 @@ async function handleUpdateGoing(eventId, user) {
 async function sendEmail(eventId, user) {
   try {
     const event = await getEventById(eventId);
-    const resend = new Resend(import.meta.env.RESEND_API);
+    console.log(event);
+    console.log(process.env.RESEND_API);
+    const resend = new Resend(process.env.RESEND_API);
     const message = `Dear ${user?.name}, you have been successfully registered for the evet, ${event?.name}. Please carry this email and add you official id to the venue. We are excited to have you here.`;
     const sent = await resend.emails.send({
-      from: "onboarding@resend.dev",
+      from: "masudinfo962@gmail.com",
       to: user.email,
       subject: "Successfully registered for the event!",
-      react: EmailTemplate({ message }),
+      react: <EmailTemplate message={message} />,
     });
   } catch (err) {
     console.log(err);

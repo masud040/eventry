@@ -8,7 +8,7 @@ const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
   title: "Eventry - Home",
-  description: "this project is created for manage events.",
+  description: "this page is create for going to event.",
 };
 
 export default async function RootLayout({ children }) {
