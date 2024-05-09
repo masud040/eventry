@@ -51,8 +51,7 @@ async function handleUpdateGoing(eventId, user) {
 async function sendEmail(eventId, user) {
   try {
     const event = await getEventById(eventId);
-    console.log(event);
-    console.log(process.env.RESEND_API);
+
     const resend = new Resend(process.env.RESEND_API);
     const message = `Dear ${user?.name}, you have been successfully registered for the evet, ${event?.name}. Please carry this email and add you official id to the venue. We are excited to have you here.`;
     const sent = await resend.emails.send({
