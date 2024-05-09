@@ -1,7 +1,9 @@
+import { getImageBlur } from "@/app/utils/getImageBlur";
 import Image from "next/image";
 import ActionButtons from "../ActionButtons";
 
-export default function HeroSection({ eventData }) {
+export default async function HeroSection({ eventData }) {
+  const { base64 } = await getImageBlur(eventData?.imageUrl);
   return (
     <section className="container">
       <div className="bg-gradient-to-b from-slate-200/20 to-slate-800/30">
@@ -11,6 +13,8 @@ export default function HeroSection({ eventData }) {
           className="h-[450px] mx-auto"
           width={900}
           height={900}
+          placeholder="blur"
+          blurDataURL={base64}
         />
       </div>
 
